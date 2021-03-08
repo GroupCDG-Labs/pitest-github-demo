@@ -1,6 +1,6 @@
 # Pitest github integration
 
-This is an early demo of pitest/github pull request integration.
+This is an early demo of [pitest](https://pitest.org/)/github pull request integration.
 
 If you'd be interested in early access please contact `pitest.demo@groupcdg.com`
 
