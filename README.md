@@ -4,7 +4,7 @@ This is an early demo of pitest/github pull request integration.
 
 If you'd be interested in early access please contact `pitest.demo@groupcdg.com`
 
-Take a look at the open PRs to see it in action.
+Take a look at the [open PRs](https://github.com/GroupCDG-Labs/pitest-github-demo/pulls) to see it in action.
 
 ## How it works
 
