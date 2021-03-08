@@ -26,7 +26,7 @@ public class GameOfLifeTest {
         }
         return bs;
     }
-
+/** oops
     @Test
     public void shouldProduceEmptyGridWhenGivenEmptyGrid() {
         boolean[][] actual = testee.advance(empty8By4Grid());
@@ -175,7 +175,7 @@ public class GameOfLifeTest {
                         "........");
         assertLiveCellSurvives(1, 4, lastGen);
     }
-
+*/
     @Test
     public void deadCellWithThreeDiagonalNeighboursShouldBecomeAlive() {
         boolean[][] lastGen =

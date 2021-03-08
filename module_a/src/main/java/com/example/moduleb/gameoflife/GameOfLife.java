@@ -7,7 +7,7 @@ public class GameOfLife {
     public boolean[][] advance(boolean[][] grid) {
         boolean[][] next = copy(grid);
 
-        for (int row = 0; row != grid.length;   row++) {
+        for (int row = 0; row != grid.length; row++) {
             for (int col = 0; col != grid[row].length; col++) {
                 int count = neighbourCount(row, col, grid);
                 if (count > 3 || count < 2) {
@@ -41,10 +41,10 @@ public class GameOfLife {
     }
 
     private int countCell(int row, int col, boolean[][] grid) {
-        if (isLive(row, col, grid)) {
-            return 1;
+        if (!isLive(row, col, grid)) {
+            return 0;
         }
-        return 0;
+        return 1;
     }
 
     private boolean isLive(int row, int col, boolean[][] grid) {
