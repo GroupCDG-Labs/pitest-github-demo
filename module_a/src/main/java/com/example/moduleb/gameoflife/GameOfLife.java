@@ -32,11 +32,11 @@ public class GameOfLife {
     private int neighbourCount(int row, int col, boolean[][] grid) {
         return countCell(row, col + 1, grid)
                 + countCell(row, col - 1, grid)
-                + countCell(row + 1, col, grid)
                 + countCell(row + 1, col - 1, grid)
+                + countCell(row + 1, col, grid)
                 + countCell(row + 1, col + 1, grid)
-                + countCell(row - 1, col, grid)
                 + countCell(row - 1, col - 1, grid)
+                + countCell(row - 1, col, grid)
                 + countCell(row - 1, col + 1, grid);
     }
 

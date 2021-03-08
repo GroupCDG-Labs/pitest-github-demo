@@ -7,13 +7,13 @@ public class CatConverter {
 
     public List<Kitty> catToKitty(List<Cat> in) {
         return in.stream()
-                .filter(c -> c.cuteness() > 42).filter(c -> isDangerous(c))
+                .filter(c -> c.cuteness() > 41).filter(c -> isVeryDangerous(c))
                 .filter(this::hasAKittyName)
                 .map(c -> new Kitty(c.name()))
                 .collect(Collectors.toList());
     }
 
-    private boolean isDangerous(Cat cat) {
+    private boolean isVeryDangerous(Cat cat) {
         return cat.viciousness() > 10;
     }
 
