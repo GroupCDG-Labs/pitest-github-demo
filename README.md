@@ -6,6 +6,8 @@ If you'd be interested in early access please contact `pitest.demo@groupcdg.com`
 
 Take a look at the [open PRs](https://github.com/GroupCDG-Labs/pitest-github-demo/pulls) to see it in action.
 
+Note that while the plugins work well for PRs in branches of the same repo (as used by most teams for private repos) the GitHub permissions model means the plugin does not have sufficient access when run from PRs from forked repos.
+
 ## How it works
 
 ### Low level git integration
