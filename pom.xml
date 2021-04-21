@@ -46,13 +46,20 @@
     <build>
         <pluginManagement>
             <plugins>
-                <!-- provides integration with github -->
+                <!-- provides the pitest-git:aggregate goal to aggregate json files
+                     to be stored as artifact when accepting PRs from untrusted forks -->
+                <plugin>
+                    <groupId>com.groupcdg</groupId>
+                    <artifactId>pitest-git-maven-plugin</artifactId>
+                    <version>${cdg.pitest.version}</version>
+                </plugin>
+                <!-- provides direct integration with github when accepting PRs from trusted branches -->
                 <plugin>
                     <groupId>com.groupcdg</groupId>
                     <artifactId>pitest-github-maven-plugin</artifactId>
                     <version>${cdg.pitest.version}</version>
                 </plugin>
-                <!-- pitest iteself must still be included and configured -->
+                <!-- pitest itself must still be included and configured -->
                 <plugin>
                     <groupId>org.pitest</groupId>
                     <artifactId>pitest-maven</artifactId>
