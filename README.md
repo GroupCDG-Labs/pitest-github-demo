@@ -6,8 +6,6 @@ If you'd be interested in early access please contact `pitest.demo@groupcdg.com`
 
 Take a look at the [open PRs](https://github.com/GroupCDG-Labs/pitest-github-demo/pulls) to see it in action.
 
-Note that while the plugins work well for PRs in branches of the same repo (as used by most teams for private repos) the GitHub permissions model means the plugin does not have sufficient access when run from PRs from forked repos.
-
 ## How it works
 
 ### Low level git integration
@@ -35,5 +33,25 @@ A comment is added to the PR each time the goal is run containing a high level o
 This PR workflow allows mutation testing to be used effectively on projects where it would not be practical to mutate the entire codebase. Gaps in the test suite and redundant code will be highlighted automatically each time an area of code is changed.
 
 Currently, it is possible to accidentally reduce the effectiveness of a test suite by removing tests without modifying the covered code, which would not be detected by the PR workflow. This may be addressed in the future.
+
+### OSS projects
+
+The `pitest-github:github` goal requires a github api token with write access. 
+
+This is generally not a problem for closed source projects where PRs come from a trusted source,
+but is problematic for OSS projects where PRs come from untrusted forks.
+
+A more complex two stage process is needed. This is demonstrated in the files :-
+
+* `receive-pr.yml`
+* `updated-pr.yml`
+
+The analysis is run without access to a write token and the results stored as an artifact.
+
+The PR is then updated using this artifact by the version of `update-pr.yml` on the master branch.
+Access to a write token therefore only happens **after** a merge.
+
+The update is performed by the `updatePR` maven goal. This can be run without a pom file being
+present.
 
 
