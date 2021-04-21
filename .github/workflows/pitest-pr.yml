@@ -25,7 +25,7 @@ jobs:
         # pitest has been bound to a profile called pitest for normal running
         # we add config to analyse only changes made within a PR and treat surviving mutants as check errors
         # failWhenNoMutations is unset in the pom, as otherwise PRs that do not affect java code would fail
-        run: mvn -e -B -Ppitest -Dfeatures="+GIT(from[HEAD~1]), +github(level[error])" test
+        run: mvn -e -B -Ppitest -Dfeatures="+GIT(from[HEAD~1]), +gitci(level[error])" test
       - name: update pull request
         run: mvn -e -B -DrepoToken=${{ secrets.GITHUB_TOKEN }} pitest-github:github
         env:
