@@ -18,7 +18,7 @@ public class CatConverter {
     }
 
     private boolean hasAKittyName(Cat cat) {
-        // Kevins and Karls cannot be kitties
-        return !cat.name().startsWith("K");
+        // Kevins and Keanos cannot be kitties
+        return !cat.name().startsWith("Ke");
     }
 }
