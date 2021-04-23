@@ -33,7 +33,7 @@ jobs:
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           name: pitest
-          path: target/pit-reports
+          path: target/pit-reports-ci
           workflow_conclusion: success
       - name: update pull request
         # The updatePR maven goal is used here with an explicit version. This allows us to upload without checking out
