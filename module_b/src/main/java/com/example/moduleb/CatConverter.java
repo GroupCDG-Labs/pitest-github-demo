@@ -7,7 +7,7 @@ public class CatConverter {
 
     public List<Kitty> catToKitty(List<Cat> in) {
         return in.stream()
-                .filter(c -> c.cuteness() > 42).filter(c -> isDangerous(c))
+                .filter(c -> c.cuteness() > 41).filter(c -> isDangerous(c))
                 .filter(this::hasAKittyName)
                 .map(c -> new Kitty(c.name()))
                 .collect(Collectors.toList());
@@ -19,6 +19,6 @@ public class CatConverter {
 
     private boolean hasAKittyName(Cat cat) {
         // Kevins and Karls cannot be kitties
-        return !cat.name().startsWith("K");
+        return !cat.name().startsWith("k");
     }
 }
