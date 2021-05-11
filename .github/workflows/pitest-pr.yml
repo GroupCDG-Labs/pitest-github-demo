@@ -34,6 +34,6 @@ jobs:
         # failWhenNoMutations is unset in the pom, as otherwise PRs that do not affect java code would fail
         run: mvn -e -B -Ppitest -Dfeatures="+GIT(from[HEAD~1]), +gitci(level[error])" test
       - name: update pull request
-        run: mvn -e -B -DrepoToken=${{ secrets.GITHUB_TOKEN }} pitest-github:github
+        run: mvn -e -B -DtrailingText="Free form text can go here. https://pitest.org" -DrepoToken=${{ secrets.GITHUB_TOKEN }} pitest-github:github
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
