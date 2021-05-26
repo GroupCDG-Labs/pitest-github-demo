@@ -7,7 +7,7 @@ public class AClass {
 
     public Optional<Widget> find(List<String> in) {
         return in.stream()
-                .filter(s -> s.startsWith("AA")).filter(s -> s.startsWith("B"))
+                .filter(s -> s.startsWith("AAF")).filter(s -> s.startsWith("B"))
                 .map(Widget::new)
                 .findAny();
     }
