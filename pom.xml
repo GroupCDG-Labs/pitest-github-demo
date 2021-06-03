@@ -11,7 +11,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <cdg.pitest.version>0.0.8</cdg.pitest.version>
+        <cdg.pitest.version>0.0.9</cdg.pitest.version>
     </properties>
 
     <dependencies>
