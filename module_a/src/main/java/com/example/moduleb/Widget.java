@@ -5,6 +5,7 @@ public class Widget {
     private final String name;
 
     public Widget(String name) {
+        System.out.println("No test for this side effect");
         this.name = name;
     }
 
