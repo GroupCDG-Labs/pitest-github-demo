@@ -11,7 +11,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <cdg.pitest.version>0.0.9</cdg.pitest.version>
+        <cdg.pitest.version>0.1.0</cdg.pitest.version>
+        <cdg.extension.version>0.0.5</cdg.extension.version>
     </properties>
 
     <dependencies>
@@ -63,7 +64,7 @@
                 <plugin>
                     <groupId>org.pitest</groupId>
                     <artifactId>pitest-maven</artifactId>
-                    <version>1.6.5</version>
+                    <version>1.7.2</version>
                     <dependencies>
                         <dependency>
                             <groupId>org.pitest</groupId>
@@ -74,6 +75,11 @@
                             <groupId>com.groupcdg</groupId>
                             <artifactId>pitest-git-plugin</artifactId>
                             <version>${cdg.pitest.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>com.groupcdg.pitest</groupId>
+                            <artifactId>extended-mutators</artifactId>
+                            <version>${cdg.extension.version}</version>
                         </dependency>
                     </dependencies>
                     <executions>
@@ -91,7 +97,10 @@
                         <!-- we must unset failWhenNoMutations, otherwise the build would error when
                         a PR included no java code changes -->
                         <failWhenNoMutations>false</failWhenNoMutations>
-                        <mutators>STRONGER</mutators>
+                        <mutators>
+                            <mutator>STRONGER</mutator>
+                            <mutator>EXTENDED_ALL</mutator>
+                        </mutators>
                     </configuration>
                 </plugin>
 
