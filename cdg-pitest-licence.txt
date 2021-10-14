@@ -1,0 +1,5 @@
+expires=13/10/2023
+keyVersion=1
+signature=CIjPfRlyBjhHkl945vthcU/EwfJmQRK2Ho9fWAobXC6GkedAGAKD9Bng2Oz0ssFKKe8M7qBSy2l+rhVplSxjCr2BLtTh0+MCzAQuT5V8onxt002naEO5xDBqD2R/myqwVEZeYCorMaFO0PbnRs0Qan5JCOrIQydlpfUddcOOqQY\=
+packages=com.example.*
+type=OSSS
