@@ -1,0 +1,7 @@
+#Licence file for pitest extensions
+#Wed Jan 17 09:31:25 GMT 2024
+expires=17/01/2026
+keyVersion=1
+signature=TZWupihhUdiYv8Hyk8QrVZzamNDokvWnu4vFXUPlKL0QDBTfZkjnuQ4N1EhB9vjYq4EFXb3/GNCdXDVfkFTJL2xuddK6qRmwhgPPbV8BlA6phFha7T+k50KDGZEQPqKa7pJHkAu+bO4jFi6ghLvuuNrcJu7W7hhBa7T1AfEO8eo\=
+packages=com.example.*
+type=EVALUATION
