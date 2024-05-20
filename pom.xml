@@ -12,7 +12,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <arcmutate.git.version>1.2.0</arcmutate.git.version>
-        <pitest.version>1.16.0</pitest.version>
+        <pitest.version>1.16.1</pitest.version>
         <junit.version>5.9.2</junit.version>
     </properties>
 
@@ -74,6 +74,11 @@
                         </dependency>
                         <dependency>
                             <groupId>com.arcmutate</groupId>
+                            <artifactId>base</artifactId>
+                            <version>1.3.0</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>com.arcmutate</groupId>
                             <artifactId>pitest-git-plugin</artifactId>
                             <version>${arcmutate.git.version}</version>
                         </dependency>
@@ -90,9 +95,11 @@
                     <configuration>
                         <threads>2</threads>
                         <timestampedReports>false</timestampedReports>
-                        <!-- we must unset failWhenNoMutations, otherwise the build would error when
-                        a PR included no java code changes -->
-                        <failWhenNoMutations>false</failWhenNoMutations>
+                        <exportLineCoverage>true</exportLineCoverage>
+                        <outputFormats>
+                            <format>XML</format>
+                            <format>HTML</format>
+                        </outputFormats>
                         <mutators>STRONGER</mutators>
                     </configuration>
                 </plugin>
@@ -118,12 +125,12 @@
                 </plugin>
             </plugins>
         </pluginManagement>
-
     </build>
 
     <modules>
         <module>module_a</module>
         <module>module_b</module>
+        <module>report</module>
     </modules>
 
 </project>
