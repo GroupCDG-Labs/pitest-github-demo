@@ -9,6 +9,7 @@ public class Widget {
     }
 
     public String getName() {
+        System.out.println("Can't kill me");
         return name;
     }
 }
