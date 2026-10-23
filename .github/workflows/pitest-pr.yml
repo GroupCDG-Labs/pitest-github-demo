@@ -12,6 +12,11 @@ jobs:
     # must use the two stage process
     if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      checks: write
+      issues: write
+      pull-requests: write
     steps:
       - name: Checkout project
         uses: actions/checkout@v2
@@ -19,13 +24,13 @@ jobs:
           # important to set a fetch depth of 2. By default the checkout action make no history available
           fetch-depth: 2
       - name: Cache local Maven repository
-        uses: actions/cache@v2
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: ~/.m2/repository
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-maven-
       - name: Setup Java JDK
-        uses: actions/setup-java@v1.4.3
+        uses: actions/setup-java@de7274f081f381c8f8158605e0321c36c376e2e6 #v6.0.1
         with:
           java-version: 11
       - name: run pitest

@@ -13,28 +13,31 @@ name: Receive
 on:
   pull_request:
 
+# Declare default permissions as read only.
+permissions: read-all
+
 jobs:
   store-pitest-feedback:
     # Only run on forked repos. This example project also configures a single stage flow for
-    # use when the PR comes from the same repo 
+    # use when the PR comes from the same repo
     if: github.event.pull_request.head.repo.full_name != github.repository
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout project
-        uses: actions/checkout@v2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           # important to set a fetch depth of 2. By default the checkout action make no history available
           fetch-depth: 2
 
       - name: Cache local Maven repository
-        uses: actions/cache@v2
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: ~/.m2/repository
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-maven-
       - name: Setup Java JDK
-        uses: actions/setup-java@v1.4.3
+        uses: actions/setup-java@de7274f081f381c8f8158605e0321c36c376e2e6 #v6.0.1
         with:
           java-version: 11
       - name: run pitest
@@ -45,7 +48,7 @@ jobs:
       - name: aggregate files
         run: mvn -e -B pitest-git:aggregate
       - name: upload results
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: pitest
           path: target/pit-reports-ci/
